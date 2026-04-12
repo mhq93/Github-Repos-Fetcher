@@ -1,6 +1,4 @@
-package com.mhq.github_trending_repos
-
-import android.accessibilityservice.GestureDescription
+package com.mhq.github_trending_repos.data
 
 data class RepoModel(
     val repoName: String,
