@@ -56,6 +56,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
     implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("androidx.paging:paging-runtime:3.3.6")
+    implementation("androidx.paging:paging-compose:3.3.6")
+    implementation("androidx.compose.material3:material3:1.3.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

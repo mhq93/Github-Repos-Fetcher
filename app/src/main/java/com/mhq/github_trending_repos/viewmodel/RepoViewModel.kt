@@ -6,34 +6,17 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.mhq.github_trending_repos.GithubReposApplication
+import com.mhq.github_trending_repos.data.model.Repo
 import com.mhq.github_trending_repos.data.repository.GithubRepository
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.io.IOException
+import kotlinx.coroutines.flow.Flow
 
 class RepoViewModel(private val githubRepository: GithubRepository): ViewModel() {
-    private val _reposUiState = MutableStateFlow<ReposUiState>(ReposUiState.Loading)
-    val reposUiState = _reposUiState.asStateFlow()
-
-    init {
-        fetchRepos()
-    }
-
-     fun fetchRepos() {
-        viewModelScope.launch {
-            _reposUiState.value = ReposUiState.Loading
-            _reposUiState.value = try {
-                ReposUiState.Success(githubRepository.provideGithubRepos(page = 1))
-            } catch (e: IOException) {
-                ReposUiState.Error(e.message ?: "Network error")
-            } catch (e: HttpException) {
-                ReposUiState.Error(e.message ?: "Server error")
-            }
-        }
-    }
+    val reposUiState: Flow<PagingData<Repo>> = githubRepository
+        .provideGithubRepos()
+        .cachedIn(viewModelScope)
 
     companion object {
         val factory: ViewModelProvider.Factory = viewModelFactory {
