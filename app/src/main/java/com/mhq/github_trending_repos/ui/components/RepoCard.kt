@@ -15,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -67,9 +68,10 @@ fun RepoCard(
         Row(){
             Text(
                 text = repo.repoName,
+                color = Color.Black,
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
             )
         }
         Spacer(
@@ -79,8 +81,9 @@ fun RepoCard(
         Row(){
             repo.repoDescription?.let {
                 Text(
-                    text = it,
-                    color = Color.Black
+                    text = repo.repoDescription ?: "No description",
+                    color = Color.Gray,
+                    style = MaterialTheme.typography.bodyMedium
                 )
             }
         }

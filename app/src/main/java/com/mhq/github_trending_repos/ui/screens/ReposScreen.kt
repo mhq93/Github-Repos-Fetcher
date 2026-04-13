@@ -1,56 +1,71 @@
 package com.mhq.github_trending_repos.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.mhq.github_trending_repos.data.model.Owner
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
 import com.mhq.github_trending_repos.data.model.Repo
 import com.mhq.github_trending_repos.ui.components.RepoCard
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReposScreen(
-    reposList: List<Repo>,
-    modifier: Modifier,
-    contentPadding: PaddingValues
-){
-    LazyColumn(
+    lazyRepos: LazyPagingItems<Repo>,
+    contentPadding: PaddingValues,
+    modifier: Modifier = Modifier
+) {
+    val pullRefreshState = rememberPullToRefreshState()
+
+    PullToRefreshBox(
+        isRefreshing = lazyRepos.loadState.refresh is LoadState.Loading,
+        onRefresh = { lazyRepos.refresh() },
+        state = pullRefreshState,
         modifier = modifier
-            .fillMaxSize()
-            .padding(contentPadding)
-            .background(MaterialTheme.colorScheme.background)
     ) {
-        items(reposList.size) { index ->
-            RepoCard(repo = reposList[index])
+        LazyColumn(
+            contentPadding = contentPadding,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .nestedScroll(connection = object : NestedScrollConnection {
+                    override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
+                        return if (available.y > 0) available.copy(y = 0f) else Offset.Zero
+                    }
+                })
+        ) {
+            items(count = lazyRepos.itemCount) { index ->
+                lazyRepos[index]?.let { repo ->
+                    RepoCard(repo = repo)
+                }
+            }
+            if (lazyRepos.loadState.append is LoadState.Loading) {
+                item {
+                    Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
+            }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ReposScreenPreview() {
-    ReposScreen(
-        reposList = listOf(
-            Repo(
-                repoName = "tensorflow",
-                repoDescription = "Computation using data flow graphs",
-                repoStars = 5100.0,
-                repoOwner = Owner(ownerName = "tensorflow", ownerAvatarUrl = "")
-            ),
-            Repo(
-                repoName = "kotlin",
-                repoDescription = "The Kotlin programming language",
-                repoStars = 3200.0,
-                repoOwner = Owner(ownerName = "JetBrains", ownerAvatarUrl = "")
-            )
-        ),
-        modifier = Modifier,
-        contentPadding = PaddingValues(0.dp)
-    )
 }

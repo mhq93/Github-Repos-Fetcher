@@ -51,12 +51,12 @@ fun LoadingScreen(
             imageVector = Icons.Default.Refresh,
             contentDescription = null,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(24.dp)
                 .rotate(rotation)
         )
         Text(
             text = "Please, wait...",
-            fontSize = 16.sp
+            fontSize = 32.sp
         )
     }
 }

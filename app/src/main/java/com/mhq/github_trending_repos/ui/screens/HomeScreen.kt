@@ -3,29 +3,21 @@ package com.mhq.github_trending_repos.ui.screens
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mhq.github_trending_repos.viewmodel.ReposUiState
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import com.mhq.github_trending_repos.data.model.Repo
 
 @Composable
 fun HomeScreen(
-    reposUiState: ReposUiState,
+    lazyRepos: LazyPagingItems<Repo>,
     retryAction: () -> Unit,
+    modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    modifier: Modifier = Modifier
 ){
-     when(reposUiState) {
-            is ReposUiState.Loading -> LoadingScreen(contentPadding = contentPadding, modifier = modifier)
-            is ReposUiState.Success -> ReposScreen(reposList = reposUiState.repos, contentPadding = contentPadding, modifier = modifier)
-            is ReposUiState.Error -> ErrorScreen(retryAction, contentPadding = contentPadding, modifier = modifier)
-        }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview(){
-    HomeScreen(
-        reposUiState = ReposUiState.Loading,
-        retryAction = {}
-    )
+     when(lazyRepos.loadState.refresh) {
+            is LoadState.Loading -> LoadingScreen(contentPadding = contentPadding, modifier = modifier)
+            is LoadState.NotLoading -> ReposScreen(lazyRepos = lazyRepos, contentPadding = contentPadding, modifier = modifier)
+            is LoadState.Error -> ErrorScreen(contentPadding = contentPadding, retryAction = retryAction, modifier = modifier)
+     }
 }
