@@ -23,12 +23,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.SubcomposeAsyncImage
+import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
+import com.mhq.github_trending_repos.data.model.Owner
+import com.mhq.github_trending_repos.data.model.Repo
 
 @Composable
-fun RepoCard(modifier: Modifier = Modifier){
+fun RepoCard(
+    repo: Repo,
+    modifier: Modifier = Modifier
+){
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -58,7 +66,9 @@ fun RepoCard(modifier: Modifier = Modifier){
     ){
         Row(){
             Text(
-                text = "[Repo Name]",
+                text = repo.repoName,
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
                 color = Color.Black
             )
         }
@@ -67,10 +77,12 @@ fun RepoCard(modifier: Modifier = Modifier){
                 .height(8.dp)
         )
         Row(){
-            Text(
-                text = "[Repo Description]",
-                color = Color.Black
-            )
+            repo.repoDescription?.let {
+                Text(
+                    text = it,
+                    color = Color.Black
+                )
+            }
         }
         Spacer(
             modifier = Modifier
@@ -82,37 +94,17 @@ fun RepoCard(modifier: Modifier = Modifier){
             verticalAlignment = Alignment.Top
         ){
             Row(){
-                SubcomposeAsyncImage(
-                    model = "https://placeholder.com/image.jpg",
+                AsyncImage(
+                    model = repo.repoOwner.ownerAvatarUrl,
                     contentDescription = "Owner Avatar",
+                    placeholder = rememberVectorPainter(Icons.Default.Person),
                     modifier = Modifier
                         .size(24.dp)
-                        .clip(CircleShape),
-                    loading = {
-                        Icon(
-                            imageVector = Icons.Default.Person,
-                            contentDescription = null
-                        )
-                    },
-                    error = {
-                        Icon(
-                            imageVector = Icons.Default.Person,
-                            contentDescription = null
-                        )
-                    }
+                        .clip(CircleShape)
                 )
-//                AsyncImage(
-//                    model = "https://placeholder.com/image.jpg",
-//                    contentDescription = "Owner Avatar",
-//                    placeholder = rememberVectorPainter(Icons.Default.Person),
-//                    modifier = Modifier
-//                        .size(24.dp)
-//                        //.background(Color.Cyan)
-//                        .clip(CircleShape)
-//                )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "[Repo Owner Name]",
+                    text = repo.repoOwner.ownerName,
                     color = Color.Black,
                 )
             }
@@ -125,7 +117,11 @@ fun RepoCard(modifier: Modifier = Modifier){
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "[Number of Stars]",
+                    text = if (repo.repoStars >= 1000) {
+                        "${"%.1f".format(repo.repoStars / 1000.0)}k"
+                    } else {
+                        "${repo.repoStars}"
+                    },
                     color = Color.Black,
                     modifier = Modifier
                         .padding(end = 4.dp)
@@ -138,5 +134,12 @@ fun RepoCard(modifier: Modifier = Modifier){
 @Preview(showBackground = true)
 @Composable
 fun RepoCardPreview(){
-    RepoCard(modifier = Modifier)
+    RepoCard(
+        repo = Repo(
+            repoName = "tensorflow",
+            repoDescription = "Computation using data flow graphs",
+            repoStars = 5100.0,
+            repoOwner = Owner(ownerName = "tensorflow", ownerAvatarUrl = "")
+        )
+    )
 }

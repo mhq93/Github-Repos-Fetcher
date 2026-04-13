@@ -4,13 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.mhq.github_trending_repos.ui.screens.ReposScreen
 import com.mhq.github_trending_repos.ui.theme.GithubTrendingReposTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,9 +14,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GithubTrendingReposTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ReposScreen(modifier = Modifier.padding(innerPadding))
-                }
+                GithubReposApp()
             }
         }
     }
@@ -29,8 +22,8 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun GithubReposAppPreview() {
     GithubTrendingReposTheme {
-        ReposScreen()
+        GithubReposApp()
     }
 }
