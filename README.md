@@ -78,12 +78,11 @@ This ensures a clear separation of concerns, testability, and scalability:
 
 ---
 
-## 📸 Screenshots *(Optional)*
+## 📸 Screenshots
 
 <p align="center">
   <img alt="gemography" src="https://github.com/user-attachments/assets/bf960dfe-4cff-46f5-a764-5abb262b6033" width="310" />
 </p>
-
 
 ---
 
