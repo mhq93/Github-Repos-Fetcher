@@ -37,32 +37,37 @@ It is built from the ground up using modern Android development stack and best p
 
 ## 🏛️ Architecture & Design Pattern
 
-The application follows the **MVVM (Model-View-ViewModel)** architectural pattern to ensure a clear separation of concerns, testability, and scalability:
+* The application follows the **MVVM (Model-View-ViewModel)** architectural pattern.
+* This ensures a clear separation of concerns, testability, and scalability:
 
 * **View (Compose UI):** 
-* Observes state from the ViewModel and renders the UI declaratively.
-* It remains completely stateless regarding business logic.
+  * Observes state from the ViewModel and renders the UI declaratively.
+  * It remains completely stateless regarding business logic.
 * **ViewModel:** 
-* Manages UI-related state, handles configuration changes.
-* Communicates with data sources via Kotlin Coroutines.
-* Exposes immutable `StateFlow` / `LazyPagingItems`.
+  * Manages UI-related state, handles configuration changes.
+  * Communicates with data sources via Kotlin Coroutines.
+  * Exposes immutable `StateFlow` / `LazyPagingItems`.
 * **Repository:**
-* Acts as a single source of truth.
-* Abstracts data sources (Network API via Retrofit) from the rest of the application.
+  * Acts as a single source of truth.
+  * Abstracts data sources (Network API via Retrofit) from the rest of the application.
 
 ---
 
 ## ✨ Key Features
 
-* **Trending Repositories Feed:** Displays repositories created over the last 30 days sorted by stars.
-* **Seamless Pagination:** Implements infinite scrolling using Paging 3 to load data smoothly page by page without overloading memory or network.
+* **Trending Repositories Feed:**
+  * Displays repositories created over the last 30 days sorted by stars.
+* **Seamless Pagination:**
+  * Implements infinite scrolling using Paging 3 to load data smoothly page by page without overloading memory or network.
 * **Rich Repository Details:** Each item shows key repository insights including:
   * Repository Name & Description
   * Star Count & Fork Count
   * Owner Avatar and Username
   * Primary Programming Language
-* **Error Handling & Loading States:** Graceful handling of loading indicators, empty states, and network failures with retry options.
-* **Material 3 Design:** Styled with modern Material Design principles for a sleek user experience.
+* **Error Handling & Loading States:**
+  * Graceful handling of loading indicators, empty states, and network failures with retry options.
+* **Material 3 Design:** 
+  * Styled with modern Material Design principles for a sleek user experience.
 
 ---
 
