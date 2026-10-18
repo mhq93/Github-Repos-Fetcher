@@ -78,7 +78,7 @@ This ensures a clear separation of concerns, testability, and scalability:
 
 ---
 
-## How to get the data from Github
+## 📡 How to get the data from GitHub
 
 To get the most starred Github repos created in the last 30 days (relative to 2017-11-22).<br>
 You'll need to call the following endpoint:<br>
