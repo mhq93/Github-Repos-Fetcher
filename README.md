@@ -40,15 +40,15 @@ It is built from the ground up using modern Android development stack and best p
 The application follows the **MVVM (Model-View-ViewModel)** architectural pattern to ensure a clear separation of concerns, testability, and scalability:
 
 * **View (Compose UI):** 
-Observes state from the ViewModel and renders the UI declaratively.
-It remains completely stateless regarding business logic.
+* Observes state from the ViewModel and renders the UI declaratively.
+* It remains completely stateless regarding business logic.
 * **ViewModel:** 
-Manages UI-related state, handles configuration changes.
-Communicates with data sources via Kotlin Coroutines.
-Exposes immutable `StateFlow` / `LazyPagingItems`.
+* Manages UI-related state, handles configuration changes.
+* Communicates with data sources via Kotlin Coroutines.
+* Exposes immutable `StateFlow` / `LazyPagingItems`.
 * **Repository:**
-Acts as a single source of truth.
-Abstracts data sources (Network API via Retrofit) from the rest of the application.
+* Acts as a single source of truth.
+* Abstracts data sources (Network API via Retrofit) from the rest of the application.
 
 ---
 
