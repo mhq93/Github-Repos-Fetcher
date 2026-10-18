@@ -59,13 +59,14 @@ This ensures a clear separation of concerns, testability, and scalability:
   * Displays repositories created over the last 30 days sorted by stars.
     
 * **Seamless Pagination:**
-  * Implements infinite scrolling using Paging 3 to load data smoothly page by page without overloading memory or network.
+  * Implements infinite scrolling using Paging 3.
+  * Loads data smoothly page by page without overloading memory or network.
     
 * **Rich Repository Details:** Each item shows key repository insights including:
-  * Repository Name & Description
-  * Star Count & Fork Count
-  * Owner Avatar and Username
-  * Primary Programming Language
+  * Repository Name & Description.
+  * Star Count & Fork Count.
+  * Owner Avatar and Username.
+  * Primary Programming Language.
     
 * **Error Handling & Loading States:**
   * Graceful handling of loading indicators, empty states, and network failures with retry options.
