@@ -34,7 +34,6 @@ It is built from the ground up using modern Android development stack and best p
 * **Concurrency:** [Kotlin Coroutines & Flow](https://kotlinlang.org/docs/coroutines-guide.html) — For asynchronous operations and reactive stream handling.
 * **Pagination:** [Paging 3 Library](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) — Efficient, incremental data loading from the API.
 * **Networking:** [Retrofit](https://square.github.io/retrofit/) — Type-safe HTTP client for REST API integration.
-<img width="946" height="1962" alt="gemography" src="https://github.com/user-attachments/assets/933237bf-d729-45b4-b0af-658cc92499c7" />
 
 ---
 
@@ -81,11 +80,9 @@ This ensures a clear separation of concerns, testability, and scalability:
 
 ## 📸 Screenshots *(Optional)*
 
-| Feed Screen | Details / Loading |
-| :---: | :---: |
-| *Insert screenshot here* | *Insert screenshot here* |
-
-<img width="946" height="1962" alt="gemography" src="https://github.com/user-attachments/assets/bf960dfe-4cff-46f5-a764-5abb262b6033" />
+<p align="center">
+  <img alt="gemography" src="https://github.com/user-attachments/assets/bf960dfe-4cff-46f5-a764-5abb262b6033" width="310" />
+</p>
 
 
 ---
