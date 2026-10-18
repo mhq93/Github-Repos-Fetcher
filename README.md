@@ -1,4 +1,4 @@
-# 📱 GitHub Trending Repos Fetcher (Gemography Challenge)
+# 📱 Gemography Coding Challenge
 
 <div align="center">
 
