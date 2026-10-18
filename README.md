@@ -37,8 +37,8 @@ It is built from the ground up using modern Android development stack and best p
 
 ## 🏛️ Architecture & Design Pattern
 
-* The application follows the **MVVM (Model-View-ViewModel)** architectural pattern.
-* This ensures a clear separation of concerns, testability, and scalability:
+The application follows the **MVVM (Model-View-ViewModel)** architectural pattern.<br>
+This ensures a clear separation of concerns, testability, and scalability:
 
 * **View (Compose UI):** 
   * Observes state from the ViewModel and renders the UI declaratively.
