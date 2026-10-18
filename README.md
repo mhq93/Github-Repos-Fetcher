@@ -2,18 +2,20 @@
 
 <div align="center">
 
-  <img src="https://img.shields.io/badge/Platform-Android-green.svg" alt="Platform">
-  <img src="https://img.shields.io/badge/Language-Kotlin-orange.svg" alt="Language">
-  <img src="https://img.shields.io/badge/UI-Jetpack%20Compose-blue.svg" alt="UI">
-  <img src="https://img.shields.io/badge/Architecture-MVVM-purple.svg" alt="Architecture">
-  <img src="https://img.shields.io/badge/Pagination-Paging%203-orange.svg" alt="Pagination">
+# 📱 GitHub Trending Repos Fetcher
+
+<p>
+  <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat&logo=android&logoColor=white" alt="Platform">
+  <img src="https://img.shields.io/badge/Language-Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Language">
+  <img src="https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?style=flat&logo=jetpackcompose&logoColor=white" alt="UI">
+  <img src="https://img.shields.io/badge/Architecture-MVVM-6DB33F?style=flat" alt="Architecture">
+  <img src="https://img.shields.io/badge/Pagination-Paging%203-FF8800?style=flat" alt="Pagination">
+</p>
+
+A modern native Android application built as part of the Gemography mobile coding challenge.<br>
+It showcases trending GitHub repositories created over the last 30 days.
 
 </div>
-
-<p align="center">
-  A modern native Android application built as part of the Gemography mobile coding challenge.<br>
-  It showcases trending GitHub repositories created over the last 30 days.
-</p>
 
 ---
 
