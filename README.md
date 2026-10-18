@@ -80,19 +80,13 @@ This ensures a clear separation of concerns, testability, and scalability:
 
 ## 📸 Screenshots
 
+<div align="center">
 
-<div align="center" style="display: flex; justify-content: center; gap: 20px;">
-  
-  <figure>
-    <img alt="mock-up" src="https://github.com/user-attachments/assets/2dcc56b7-fba4-467b-9108-90ee559f11ca" width="310" />
-    <figcaption><sub><i>Figure 1: Mock-up</i></sub></figcaption>
-  </figure>
-  
-  <figure>
-    <img alt="demo" src="https://github.com/user-attachments/assets/bf960dfe-4cff-46f5-a764-5abb262b6033" width="310" />
-    <figcaption><sub><i>Figure 2: Demo</i></sub></figcaption>
-  </figure>
-  
+| Mock-up | Live Demo |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/2dcc56b7-fba4-467b-9108-90ee559f11ca" width="280" alt="Mock-up" /> | <img src="https://github.com/user-attachments/assets/bf960dfe-4cff-46f5-a764-5abb262b6033" width="280" alt="Demo" /> |
+| <sub><i>Figure 1: UI Mock-up</i></sub> | <sub><i>Figure 2: Live App Demo</i></sub> |
+
 </div>
 
 ---
