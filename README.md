@@ -11,14 +11,16 @@
 </div>
 
 <p align="center">
-  A modern native Android application built as part of the Gemography mobile coding challenge, showcasing trending GitHub repositories created over the last 30 days.
+  A modern native Android application built as part of the Gemography mobile coding challenge.
+  It showcases trending GitHub repositories created over the last 30 days.
 </p>
 
 ---
 
 ## 🚀 About the Project
 
-This project fetches and displays the most starred GitHub repositories created in the last month. It is built from the ground up using modern Android development best practices, emphasizing performance, responsiveness, and a smooth user interface.
+This project fetches and displays the most starred GitHub repositories created in the last month.
+It is built from the ground up using modern Android development stack and best practices.
 
 ---
 
@@ -37,9 +39,16 @@ This project fetches and displays the most starred GitHub repositories created i
 
 The application follows the **MVVM (Model-View-ViewModel)** architectural pattern to ensure a clear separation of concerns, testability, and scalability:
 
-* **View (Compose UI):** Observes state from the ViewModel and renders the UI declaratively. It remains completely stateless regarding business logic.
-* **ViewModel:** Manages UI-related state, handles configuration changes, and communicates with data sources via Kotlin Coroutines. Exposes immutable `StateFlow` / `LazyPagingItems`.
-* **Repository:** Acts as a single source of truth, abstracting data sources (Network API via Retrofit) from the rest of the application.
+* **View (Compose UI):** 
+Observes state from the ViewModel and renders the UI declaratively.
+It remains completely stateless regarding business logic.
+* **ViewModel:** 
+Manages UI-related state, handles configuration changes.
+Communicates with data sources via Kotlin Coroutines.
+Exposes immutable `StateFlow` / `LazyPagingItems`.
+* **Repository:**
+Acts as a single source of truth.
+Abstracts data sources (Network API via Retrofit) from the rest of the application.
 
 ---
 
