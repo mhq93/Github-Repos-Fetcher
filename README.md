@@ -11,7 +11,7 @@
 </div>
 
 <p align="center">
-  A modern native Android application built as part of the Gemography mobile coding challenge.
+  A modern native Android application built as part of the Gemography mobile coding challenge.  
   It showcases trending GitHub repositories created over the last 30 days.
 </p>
 
@@ -19,7 +19,7 @@
 
 ## 🚀 About the Project
 
-This project fetches and displays the most starred GitHub repositories created in the last month.
+This project fetches and displays the most starred GitHub repositories created in the last month.  
 It is built from the ground up using modern Android development stack and best practices.
 
 ---
@@ -57,15 +57,19 @@ It is built from the ground up using modern Android development stack and best p
 
 * **Trending Repositories Feed:**
   * Displays repositories created over the last 30 days sorted by stars.
+    
 * **Seamless Pagination:**
   * Implements infinite scrolling using Paging 3 to load data smoothly page by page without overloading memory or network.
+    
 * **Rich Repository Details:** Each item shows key repository insights including:
   * Repository Name & Description
   * Star Count & Fork Count
   * Owner Avatar and Username
   * Primary Programming Language
+    
 * **Error Handling & Loading States:**
   * Graceful handling of loading indicators, empty states, and network failures with retry options.
+    
 * **Material 3 Design:** 
   * Styled with modern Material Design principles for a sleek user experience.
 
