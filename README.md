@@ -78,6 +78,24 @@ This ensures a clear separation of concerns, testability, and scalability:
 
 ---
 
+## How to get the data from Github
+
+To get the most starred Github repos created in the last 30 days (relative to 2017-11-22).<br>
+You'll need to call the following endpoint:<br>
+
+https://api.github.com/search/repositories?q=created:>2017-10-22&sort=stars&order=desc
+
+The JSON data from Github will be paginated (you'll receive around 100 repos per JSON page).<br>
+To get the 2nd page, you add &page=2 to the end of your API request:<br>
+
+https://api.github.com/search/repositories?q=created:>2017-10-22&sort=stars&order=desc&page=2
+
+To get the 3rd page, you add &page=3 ... etc.
+
+Check out the [GitHub API Documentation](https://docs.github.com/en/rest) for details on trending endpoint parameters.
+
+---
+
 ## 📸 Screenshots
 
 <div align="center">
